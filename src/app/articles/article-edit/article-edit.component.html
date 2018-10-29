@@ -1,14 +1,14 @@
-<div *ngIf="article">
+<div class="article" *ngIf="article">
     Edit Article
-    <span>{{ article.id }}</span>
-    <h3>{{ article.attributes.title }}</h3>
+    <h2 class="article-title">{{ article.attributes.title }}</h2>
     <div class="form-field">
         <label for="title">Titel: </label>
         <input type="text" name="title" value="{{ article.attributes.title }}" [(ngModel)]="article.attributes.title">
     </div>
     <div class="form-field">
         <label for="title">Body: </label>
-        <textarea rows="15" name="body" value="{{ article.attributes.body.value }}" [(ngModel)]="article.attributes.body.value"></textarea>
+        <textarea rows="20" name="body" value="{{ article.attributes.body.value }}" [(ngModel)]="article.attributes.body.value"></textarea>
     </div>
-    <button class="btn" (click)="updateArticle(id)">Update</button>
+    <a class="btn" (click)="goBack">Terug</a>
+    <a class="btn" (click)="updateArticle(id)">Update</a>
 </div>

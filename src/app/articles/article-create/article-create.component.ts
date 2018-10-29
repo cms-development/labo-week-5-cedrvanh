@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../../models/article';
 import { ArticleService } from '../../services/article.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-article-create',
@@ -8,23 +9,25 @@ import { ArticleService } from '../../services/article.service';
   styleUrls: ['./article-create.component.scss']
 })
 export class ArticleCreateComponent implements OnInit {
-  article: Article;
-  title: string;
-  body: string;
+  article: Article = {
+    title: '',
+    body: '',
+    data: '',
+  };
 
-  constructor(private articleService: ArticleService) { }
+  constructor(
+    private articleService: ArticleService,
+    private router: Router) { }
 
   ngOnInit() {
     console.log('Create Page');
   }
 
-  onSubmit(): void {
-    const newArticle = new Article();
-    newArticle.data = this.article;
-
-    this.articleService.createArticle(newArticle)
+  onSubmit(title: string, text: string): void {
+    this.articleService.createArticle(title, text)
       .subscribe(res => {
         console.log('Created Article', res);
+        this.router.navigate(['articles']);
       });
   }
 }

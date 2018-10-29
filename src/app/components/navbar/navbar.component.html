@@ -1,8 +1,5 @@
 <section class="navbar">
-  <!--
-  <a routerLink='/login' class="btn" *ngIf="!isAuthenticated" >Login</a>
-  <a routerLink='/articles' class="btn" *ngIf="isAuthenticated" (click)="logout()" >Logout</a>
-  -->
-  <a routerLink='/login' class="btn">Login</a>
-  <a routerLink='/articles' class="btn" (click)="logout()">Logout</a>
+  <a routerLink='/login' class="btn" *ngIf="!isAuthenticated">Login</a>
+  <a routerLink='/articles' class="btn" (click)="logout()" *ngIf="isAuthenticated">Logout</a>
+  <a routerLink='/articles/create' class="btn" *ngIf="isAuthenticated">Create</a>
 </section>

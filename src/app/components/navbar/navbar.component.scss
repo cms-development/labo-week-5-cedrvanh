@@ -1,5 +1,7 @@
+@import 'variables';
+
 .navbar {
     width: 100%;
     padding: 1.5rem;
-    background: #DDD;
+    background: $primary-color;
 }

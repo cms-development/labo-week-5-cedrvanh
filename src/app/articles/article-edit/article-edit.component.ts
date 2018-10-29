@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../../services/article.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from '../../models/article';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-article-edit',
@@ -14,7 +15,9 @@ export class ArticleEditComponent implements OnInit {
 
   constructor(
     private articleService: ArticleService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private router: Router,
+    private location: Location) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -36,6 +39,11 @@ export class ArticleEditComponent implements OnInit {
     this.articleService.updateArticle(id, newArticle)
       .subscribe(res => {
         console.log(res);
+        this.router.navigate(['articles']);
       });
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

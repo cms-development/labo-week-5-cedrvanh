@@ -19,8 +19,6 @@ export class ArticleService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        Authorization: `Bearer ${this.authService.getToken()}`
       })
     };
 
@@ -35,8 +33,21 @@ export class ArticleService {
     return this.http.get<Article>(`${this.API_URL}/${id}`);
   }
 
-  createArticle(body: any): Observable<Article> {
-    return this.http.post<Article>(`${this.API_URL}`, body, this.setHeaders());
+  createArticle(title: string, body: string): Observable<Article> {
+    const data = {
+      data: {
+        type: 'node--article',
+        attributes: {
+          title: title,
+          body: {
+            value: body,
+            format: 'plain_text'
+          }
+        }
+      }
+    };
+
+    return this.http.post<Article>(`${this.API_URL}`, data, this.setHeaders());
   }
 
   updateArticle(id: string, body: any): Observable<Article> {
