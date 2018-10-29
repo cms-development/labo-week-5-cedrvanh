@@ -1,0 +1,9 @@
+<section class="article-list" *ngIf="articles">
+  <section class="article-card" *ngFor="let article of articles.data">
+    <h3 clas="article-title">{{ article.attributes.title }}</h3>
+    <div class="article-content">
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem</p>  
+    </div>
+    <a routerLink="/articles/{{article.id}}">Lees meer</a>
+  </section>
+</section>

@@ -1,0 +1,11 @@
+.article-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.article-card {
+    width: 100%;
+    flex-basis: 33.333%;
+    padding: 1rem;
+    box-sizing: border-box;
+}

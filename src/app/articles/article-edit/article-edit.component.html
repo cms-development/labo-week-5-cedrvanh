@@ -1,0 +1,14 @@
+<div *ngIf="article">
+    Edit Article
+    <span>{{ article.id }}</span>
+    <h3>{{ article.attributes.title }}</h3>
+    <div class="form-field">
+        <label for="title">Titel: </label>
+        <input type="text" name="title" value="{{ article.attributes.title }}" [(ngModel)]="article.attributes.title">
+    </div>
+    <div class="form-field">
+        <label for="title">Body: </label>
+        <textarea rows="15" name="body" value="{{ article.attributes.body.value }}" [(ngModel)]="article.attributes.body.value"></textarea>
+    </div>
+    <button class="btn" (click)="updateArticle(id)">Update</button>
+</div>

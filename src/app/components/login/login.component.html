@@ -1,0 +1,12 @@
+<form class="form" (ngSubmit)="onSubmit()">
+  <div class="form-field">
+    <label for="username">Gebruikersnaam: </label>
+    <input type="text" name="username" placeholder="Geef je gebruikersnaam in..." [(ngModel)]="username">
+  </div>
+  <div class="form-field">
+    <label for="username">Wachtwoord: </label>
+    <input type="password" name="password" placeholder="Geef je wachtwoord in..." [(ngModel)]="password">
+  </div>
+
+  <button class="btn btn-submit">Inloggen</button>
+</form>

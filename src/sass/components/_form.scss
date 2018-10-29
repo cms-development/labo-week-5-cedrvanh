@@ -1,0 +1,16 @@
+input {
+    padding: 0.5rem;
+}
+
+input:focus {
+    outline: none;
+}
+
+.form, .form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field > label {
+    margin: 0.5rem 0;
+}

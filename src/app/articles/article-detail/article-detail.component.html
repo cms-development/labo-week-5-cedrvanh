@@ -1,0 +1,8 @@
+<h1>Detail Pagina</h1>
+<div *ngIf="article">
+    <span>{{article.id}}</span>
+    <h2>{{article.attributes.title}}</h2>
+    {{article.attributes.body.value}}
+    <button routerLink="/articles/edit/{{id}}" class="btn">Edit</button>
+    <button href="#" class="btn" (click)="deleteArticle(id)">Delete</button>
+</div>
